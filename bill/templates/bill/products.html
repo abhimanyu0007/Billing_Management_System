@@ -1,0 +1,59 @@
+{% extends 'bill/base.html' %} {% block content %}
+
+<div class="container">
+
+<div class="card card-body" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+      <h5>Add Products :</h5>
+    </div>
+
+<div class="row" style='background-color: #4cb4c7;
+color:white;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+
+    <form method="POST",action="">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label for="product_name" class="form-label">Product Name</label>
+    <input type="text" class="form-control" id="product_name" name="product_name">
+    
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Price</label>
+    <input type="text" class="form-control" id="price" name="price">
+  </div>
+  
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form> 
+
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+      <h5>Products</h5>
+    </div>
+    <div class="card card-body" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+      <table class="table">
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+        </tr>
+        {% for i in products %}
+        <tr>
+          <td>{{i.Product_Name}}</td>
+          <td>{{i.Price}}</td>
+        </tr>
+
+        {%endfor%}
+      </table>
+    </div>
+  </div>
+</div>
+
+</div>
+
+{% endblock content %}

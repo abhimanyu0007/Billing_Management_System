@@ -1,0 +1,89 @@
+{%  extends 'bill/base.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="total-orders">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Customers</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{Total_Customers}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-delivered">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Products</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{Total_Products}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-pending">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Bills</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{Total_Bills}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+
+
+		 <div class="row">
+  <div class="col-md">
+    <div class="card card-body" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+      <h5>Bills</h5>
+    </div>
+    <div class="card card-body" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+      <table class="table">
+        <tr>
+          
+          <th>Customer</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+        </tr>
+        {% for i in bill %}
+        <tr>
+          <td>{{i.customer}}</td>
+          <td>{{i.product}}</td>
+          <td>{{i.Quantity}}</td>
+          <td>{{i.Amount}}</td>
+
+        </tr>
+
+        {%endfor%}
+      </table>
+    </div>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+

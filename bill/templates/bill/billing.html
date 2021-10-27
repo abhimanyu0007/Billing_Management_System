@@ -1,0 +1,98 @@
+{% extends 'bill/base.html' %} {% block content %}
+
+<div class="container">
+
+<div class="card card-body" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+      <h5>Generate Bill :-</h5>
+    </div>
+
+<div class="row" style='background-color: #4cb4c7;
+color:white;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+	
+		
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				
+				
+
+                <div class="mb-2">
+    <label for="first_name" class="form-label">Customer Name</label>
+    <div class="container">
+    {{form.customer}}
+
+    </div>
+    
+  </div>
+  <div class="mb-2">
+    <label for="last_name" class="form-label">Product Name</label>
+    <div class="container">
+    {{form.product}}
+    </div>
+    
+  </div>
+  <div class="mb-2">
+    <label for="address" class="form-label">Quantity</label>
+    <div class="container">
+    {{form.Quantity}}
+</div>
+    
+    
+  </div>
+  <div class="mb-2">
+    <label for="amount" class="form-label">Amount</label>
+    <div class="container">
+    {{form.Amount}}
+    </div>
+    
+    
+  </div>
+				
+			<div class="container my-3">
+				
+				<input type="submit" class='btn btn-danger btn-sm btn-sm' name="Submit">
+                </div>	
+			</form>
+
+		
+	
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+      <h5>Bills</h5>
+    </div>
+    <div class="card card-body" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>Customer</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+        </tr>
+        {% for i in Bills %}
+        <tr>
+          <td><a class="btn btn-sm btn-info" href="{% url 'receipt' i.id %}">Invoice</a></td>
+          <td>{{i.customer}}</td>
+          <td>{{i.product}}</td>
+          <td>{{i.Quantity}}</td>
+          <td>{{i.Amount}}</td>
+
+        </tr>
+
+        {%endfor%}
+      </table>
+    </div>
+  </div>
+</div>
+
+</div>
+
+{% endblock content %}

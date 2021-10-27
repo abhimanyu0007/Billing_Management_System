@@ -1,0 +1,87 @@
+{% extends 'bill/base.html' %} {% block content %}
+
+{% load static %}
+
+
+<div class="container">
+
+<div class="card card-body" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+      <h5>Add Customer's Contact :-</h5>
+    </div>
+
+<div class="row" style='background-color: #4cb4c7;
+color:white;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+	
+		
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				
+				
+
+               {{formCustomer}}
+				
+			
+				
+				<input type="submit" class='btn btn-danger btn-sm btn-sm' name="Submit">
+                </div>	
+			
+
+		
+	
+</div>
+
+<div class="row" style='background-color: #ffff;
+color:black;padding:20px;margin:50px;display: flex;justify-content: center;align-items: center; '>
+<div class="col-md-5">
+		<h5>ADMINS:</h5>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					
+					<th>User</th>
+					<th>Contact</th>
+				</tr>
+			{% for user in userContact %}
+					<tr>
+						
+						<td>{{user.name}}</td>
+						<td>{{user.contact}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div> 
+
+	<div class="col-md-5">
+		<h5>CUSTOMERS:</h5>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					
+					<th>Customer</th>
+					<th>Contact</th>
+				</tr>
+			{% for customer in customerContact %}
+					<tr>
+						
+						<td>{{customer.name}}</td>
+						<td>{{customer.contact}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+	
+
+</div>
+
+
+{% endblock %}
